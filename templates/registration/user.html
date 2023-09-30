@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+
+{% block content %}
+<div style="text-align: center; border-style:dashed;">
+  <br>
+  <h1>Welcome, {{username}} </h1>
+  <h4>Your password is<br></h4>
+  <div class="alert alert-success" role="alert">
+      <strong>{{password}}</strong>
+  </div>
+    
+  <br/><br/>
+  <a href="/polls" class="card-link">
+    <button type="button" class="btn btn-primary btn-lg">
+      GET POLLING
+    </button>
+  </a>
+  <br><br>
+</div>
+{% endblock %}

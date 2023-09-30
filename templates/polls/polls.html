@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+
+<ul>
+{% block content %}
+  {% if latest_question_list %}
+    {% for question in latest_question_list %}
+      <div class="card">
+        <div class="card-body">
+          <li>
+            {% if user.is_authenticated %}
+            <a href = "{% url 'polls:detail' question.id %}">
+                {{ question.question_text }}
+            </a>
+              {% else %}
+              <a href = "{% url 'login' %}">
+                {{ question.question_text }}
+              </a>
+              <b>Log in to vote!</b>
+            {% endif %}
+          </li>
+        </div>
+      </div>
+    {% endfor %}
+
+    {% else %}
+      <p>No polls are available.</p>
+  {% endif %}
+{% endblock %}
+</ul>      

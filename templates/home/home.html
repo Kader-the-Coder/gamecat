@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container-fluid">
+  <div class="row align-items-center">
+    <!--Column 1 - Summary of clicks---------------------------------->
+    <div id="col_1" class="col-md-4">
+      <div class="container-fluid">
+        <div class="row align-items-center">
+          <div class="col-md-4">
+            <h4>Total clicks</h4><br><h3><b>{{ total_clicks }}</b></h3>
+          </div>
+          <div class="col-md-4">
+            <h4>Average clicks</h4><br><h3><b>{{ average_clicks }}</b></h3>
+          </div>
+          <div class="col-md-4">
+            <h4>Latest clicker</h4><br><h3><b>{{ last_clicker }}</b></h3>
+          </div>
+        </div>
+        <hr>
+        <div class="row align-items-center">
+            <h4>Most clicks</h4><br><h3><b>{{ most_clicker }}</b></h3>
+        </div>
+      </div>
+    </div>
+    <!--Column 2-The button------------------------------------------->
+    <div id="col_2" class="col-md-4">
+      <div>
+        {% if user.is_authenticated %}
+            <a type="post"
+               href="{% url 'home:clicked' %}">
+                <img id="custom_button" src="static/images/button.png">
+            </a>
+        {% else %}
+            <img src="static/images/button.png">
+        {% endif %}
+      </div>
+    </div>
+    <!--Column 3 - user summary--------------------------------------->
+    <div id="col_3" class="col-md-4">
+      {% if user.is_authenticated %}
+        <div class="row align-items-center">
+          <h4>Logged in clicker</h4><br><h3><b>{{ username }}</b></h3>
+        </div>
+        <hr>
+        <div class="container-fluid">
+          <div class="row align-items-center">
+            <div class="col-md">
+              <h4>Total clicks</h4>
+              <h1><b>{{ user_clicks }}</b></h1>
+            </div>
+          </div>
+        </div>
+      {% else %}
+      <br><br><br>
+      <h1>Login to get clicking!!!</h1>
+      <br><br><br>
+      {% endif %}
+    </div>
+
+  </div>
+</div>
+{% endblock %}

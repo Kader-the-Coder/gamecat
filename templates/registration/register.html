@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+
+{% block content %}
+<br><br>
+<div class="row">
+  <div class="col-md-2">
+    <!--Empty cell---------------------------------------------------->
+  </div>
+  <div class="col-md-8">
+    <div style="text-align: center; border-style:dashed;">
+      <h1>Signup here!</h1>
+    <hr>
+    <form action="" method="POST">
+      {% csrf_token %}
+      {% for field in form %}
+        <div>{{ field.label }}</div>
+        {{ field }}
+        {% for error in field.errors %}
+          <br><small style="color: red">{{ error }}</small>
+      {% endfor %}
+        <br><br>
+      {% endfor %}
+        <button class="btn btn-primary" type="submit">Register</button>
+        <br><br>
+      </form>
+    </div>
+  </div>
+  <div class="col-md-2">
+    <!--Empty cell---------------------------------------------------->
+  </div>
+</div>
+{% endblock %}

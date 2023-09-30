@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+{% block content %}
+<div style="text-align: center; border-style:dashed;">
+  <br>
+  <h1>Login as User</h1>
+  <hr>
+  <form class="form-inline" action="{% url 'registration:authentication' %}" method="post">
+    {% csrf_token %}
+    <label class="sr-only" for="inlineFormInputGroup">Username</label>
+    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+      <input type="text" class="form-control" name="username" placeholder="username" required>
+    </div>
+    <br/>
+    <label class="sr-only" for="inlineFormInputGroup">Password</label>
+    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+      <input type="password" class="form-control" name="password" placeholder="password" required>
+    </div>
+    <hr/>
+    <input class="btn btn-primary btn-lg" type="submit" value="Login" />
+    {% url 'registration:register' as register_page %}
+    {% if request.get_full_path != register_page %}
+      <a href="{% url 'registration:register' %}">
+        <div class="btn btn-success">Signup</div>                    
+      </a>
+    {% endif %}
+  </form>
+  <br>
+</div>
+{% endblock %}
+

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+
+{% block content %}
+  <br>
+  <div class="alert alert-success" role="alert">
+    <h2 style="text-align: center;">Logged out successfully!</h2>
+  </div>  
+  <h3 style="text-align: center;">
+    Go ahead. Login again. We know you want to.  
+    <br><br><br>
+    <a href="{% url 'home:home' %}">
+      <button type="button" class="btn btn-primary btn-lg btn-block">Return to homes screen</button>          
+    </a>  
+  </h3>
+{% endblock content %}

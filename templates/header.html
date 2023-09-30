@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<div id="header_style" class="container-fluid">
+    <div class="row">
+      <div class="row align-items-center" style="min-height: 5vh">
+        <!--Column 1-Empty cell (Can put something here later)--------->
+        <div class="col-md-2">
+        </div>
+        <!--Column 2-Site Logo and Name------------------------------->
+        <div class="col-md-8">
+            <div id="header_name" class="card-body">
+              <img class="card-img-top" src="/static/images/logo.png" alt="Site logo">
+              <h1 class="display-1">GAMECAT</h1>
+            </div>
+        </div>
+        <!--Column 3-Login/Logout------------------------------------->
+        <div class="col-md-2">
+          {% if user.is_authenticated %}
+            <!--Display when user is logged in---------------------->
+            <div style="text-align: center; border-style:dashed;">
+              <br>
+              <h1> Logged in as <u>{{ user.username }}!</u></h1>
+              <hr>
+              <a href="{% url 'registration:logout_user' %}">
+                <div class="btn btn-primary">Logout</div>
+              </a>
+            </div>
+          {% else %}
+          <!--Display when user not logged-------------------------->
+            {% include 'registration/login.html' %}
+          {% endif %}
+        </div>
+      </div>
+    </div>
+</div>

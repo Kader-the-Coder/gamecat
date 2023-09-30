@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+
+{% block content %}
+{% if user.is_authenticated %}
+
+<div class="card">
+  <div class="card-body">
+      <h2 class="card-title">{{question.question_text}}</h2>
+      <h6 class="card-subtitle mb-2 text-muted">Select your answer below</h6>
+      <br>
+      <h5 class="card-text">  
+        {% for choice in question.choice_set.all %}
+          <li>
+            {{ choice.choice_text }} -- {{ choice.votes}}
+            vote{{choice.votes|pluralize}}
+          </li>
+        {% endfor %}
+      <br><br>
+      <a href="{% url 'polls:detail' question.id %}" class="card-link">Vote again?</a>
+      <a href="/" class="card-link">Back</a>
+      </h5>
+  </div>
+</div>
+
+{% else %}
+<a href = "{% url 'login' %}">LOGIN</a>
+{% endif %}
+
+{% endblock %}

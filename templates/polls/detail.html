@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+
+{% block content %}
+{% if user.is_authenticated %}
+
+<div class="card">
+  <div class="card-body">
+      <h2 class="card-title">{{question.question_text}}</h2>
+
+      {% if error_message %}
+      <p><strong>{{error_message}}</strong></p>
+      {% endif %}
+      
+        <h6 class="card-subtitle mb-2 text-muted">Select your answer below</h6>
+        <br>
+        <h5 class="card-text">
+
+          <form action="{% url 'polls:vote' question.id %}" method="post">
+            {% csrf_token %}
+
+            {% for choice in question.choice_set.all %}
+                <input type="radio" name="choice" id="choice {{
+                    forloop.counter
+                }}" value="{{ choice.id }}" />
+                <label for="choice {{ forloop.counter }}">
+                    {{ choice.choice_text }}
+                </label>
+                <br />
+            {% endfor %}
+            <br><br>
+            <input type="submit" value="Vote" class="card-link"/>
+            <a href="/" class="card-link">Back</a>
+          </form>
+        </h5>
+      
+  </div>
+</div>
+
+{% else %}
+<a href = "{% url 'login' %}">LOGIN</a>
+{% endif %}
+
+{% endblock %}
