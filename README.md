@@ -2,7 +2,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/Kader-the-Coder/gamecat">
-    <img src="images/book_icon.png" alt="Logo" width="80" height="80">
+    <img src="static/images/favicon.ico" alt="Logo" width="80" height="80">
   </a>
 <h3 align="center">GAMECAT</h3>
   <p align="center">
@@ -41,9 +41,10 @@ In order to make use of this project, follow the steps below:
 
 ### Installation
 
+#### Running on <a target="_blank" href="https://labs.play-with-docker.com">Docker Playground<a>
 Just clone the repo
    ```sh
-
+   docker run -it -p 8080:8000 kaderthecoder/gamecat
    ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -63,8 +64,8 @@ None
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- MARKDOWN LINKS & IMAGES -->
-[screenshot1]: images/screenshot1.png
-[screenshot2]: images/screenshot2.png
-[screenshot3]: images/screenshot3.png
-[screenshot4]: images/screenshot4.png
-[screenshot5]: images/screenshot5.png
+[screenshot1]: static/images/screenshot1.png
+[screenshot2]: static/images/screenshot2.png
+[screenshot3]: static/images/screenshot3.png
+[screenshot4]: static/images/screenshot4.png
+[screenshot5]: static/images/screenshot5.png
