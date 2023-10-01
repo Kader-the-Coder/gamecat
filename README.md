@@ -1,7 +1,7 @@
 <a name="readme-top"></a>
 <br />
 <div align="center">
-  <a href="https://github.com/Kader-the-Coder/book-manager">
+  <a href="https://github.com/Kader-the-Coder/gamecat">
     <img src="images/book_icon.png" alt="Logo" width="80" height="80">
   </a>
 <h3 align="center">GAMECAT</h3>
